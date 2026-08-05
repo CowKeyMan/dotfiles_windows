@@ -1,0 +1,43 @@
+# Created using winget configure export 1.28.240
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.3
+$schema: https://raw.githubusercontent.com/PowerShell/DSC/main/schemas/2023/08/config/document.json
+metadata:
+  winget:
+    processor:
+      identifier: "dscv3"
+resources:
+- name: winget_GIMP.GIMP
+  type: Microsoft.WinGet/Package
+  metadata:
+    description: "Install GIMP.GIMP"
+  properties:
+    id: "GIMP.GIMP"
+    source: "winget"
+- name: winget_Microsoft.VisualStudioCode
+  type: Microsoft.WinGet/Package
+  metadata:
+    description: "Install Microsoft.VisualStudioCode"
+  properties:
+    id: "Microsoft.VisualStudioCode"
+    source: "winget"
+- name: winget_Mozilla.Firefox
+  type: Microsoft.WinGet/Package
+  metadata:
+    description: "Install Mozilla.Firefox"
+  properties:
+    id: "Mozilla.Firefox"
+    source: "winget"
+- name: winget_jdx.mise
+  type: Microsoft.WinGet/Package
+  metadata:
+    description: "Install jdx.mise"
+  properties:
+    id: "jdx.mise"
+    source: "winget"
+- name: winget_Git.Git
+  type: Microsoft.WinGet/Package
+  metadata:
+    description: "Install Git.Git"
+  properties:
+    id: "Git.Git"
+    source: "winget"

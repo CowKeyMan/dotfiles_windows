@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  install-winget-common:
+    summary:
+    cmd: winget configure -f winget.common.yaml
+
+  install-mise-packages:
+    summary: install packages configured through mise
+    cmd: mise install
+
+  setup-env-variables:
+    summary: Set the PATH env variable
+    cmd: uv run scripts/setup_env_variables.py

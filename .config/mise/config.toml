@@ -1,0 +1,30 @@
+[tools]
+slang = "latest"
+vk_slang_editor = "latest"
+uv = "latest"
+python = "latest"
+fd = "latest"
+fzf = "latest"
+dotnet = "latest"
+ruff = "latest"
+task = "latest"
+ty = "latest"
+github-cli = "latest"
+blender = "latest"
+vscode-cli = "latest"
+godot = "latest"
+neovim = "latest"
+java = "temurin"
+ninja = "latest"
+node = "latest"
+ripgrep = "latest"
+rust = "latest"
+
+[tool_alias]
+slang = "github:shader-slang/slang"
+
+[settings]
+minimum_release_age = "7d"
+
+[settings.python]
+uv_venv_auto = "source"

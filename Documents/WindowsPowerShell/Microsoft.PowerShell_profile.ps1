@@ -1,0 +1,1 @@
+. ${HOME}/profile.ps1

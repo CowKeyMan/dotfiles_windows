@@ -1,0 +1,6 @@
+[wsl2]
+memory=12GB
+localhostforwarding=true
+# networkingMode=mirrored
+firewall=true
+guiApplications=true

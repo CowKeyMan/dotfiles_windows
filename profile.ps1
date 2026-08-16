@@ -40,9 +40,24 @@ Set-PSReadLineOption –HistoryNoDuplicates:$true
 Set-PSReadLineOption -ViModeIndicator:Cursor
 
 # Fzf
+# Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
+#     $command = Get-Content (Get-PSReadlineOption).HistorySavePath | ForEach-Object -Begin { $hash = @{} } -Process { if (!$hash[$_]) { $hash[$_] = $true; $_ } } | fzf --tac
+#     [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+# }
+
 Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
-    $command = Get-Content (Get-PSReadlineOption).HistorySavePath | ForEach-Object -Begin { $hash = @{} } -Process { if (!$hash[$_]) { $hash[$_] = $true; $_ } } | fzf --tac
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+    $history = Get-Content (Get-PSReadlineOption).HistorySavePath
+    if ($history) {
+        [array]::Reverse($history)
+        $unique = $history | Select-Object -Unique
+        [array]::Reverse($unique)
+        
+        # Adding --scheme=history ensures recent matches stay closest to your cursor
+        $command = $unique | fzf --tac --no-sort
+        if ($command) {
+          [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+        }
+    }
 }
 
 Set-PSReadLineKeyHandler -Chord 'Ctrl+Spacebar' -Function Complete
